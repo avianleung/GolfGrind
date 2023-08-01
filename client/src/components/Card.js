@@ -11,8 +11,11 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 import Share from "./Share"
+
+import DataService from "../services/service";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -43,9 +46,20 @@ export default function SpaceCard(props) {
     setLiked(!liked)
   }
 
+  async function handleDelete(entryId) {
+    try {
+      await DataService.deleteEntry(entryId);
+
+      window.location.reload()
+    } catch (error) {
+      console.error('Error deleting entry:', error);
+    }
+  }
+
   // set liked value to true on mount if in localStorage
   useEffect(() => {
     if (store.get(`${entryId}`)) {
+      console.log(entryId)
       setLiked(true);
     }
   }, []);
@@ -56,7 +70,6 @@ export default function SpaceCard(props) {
         style={{ textAlign: 'center' }}
         titleTypographyProps={{variant:'h7' }}
         title={caption}
-        subheader={"Uploaded on: " + date}
       />
       {mediaType === "image" && (
         <CardMedia
@@ -92,10 +105,15 @@ export default function SpaceCard(props) {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Typography variant="body2" color="text.secondary" style={{ padding: "0 20px 20px 20px" }}>
-          {"comments"}
-        </Typography>
-        </Collapse>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="body2" color="text.secondary" style={{ margin: "10px 0 20px 20px" }}>
+            {"Uploaded on " + date}
+          </Typography>
+          <IconButton aria-label="add to favorites" onClick={() => handleDelete(entryId)} style={{ margin: "0 10px 10px 0px" }}>
+            <DeleteOutlinedIcon style={{ fontSize: "20px" }} />
+          </IconButton>
+        </div>
+      </Collapse>
     </Card>
   );
 }

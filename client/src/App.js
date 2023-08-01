@@ -58,14 +58,14 @@ function App() {
                 variant="body"
                 component="div"
               >
-                0 liked images.
+                0 liked content.
               </Typography>
             )}
             {Object.values(store())?.map((obj, index) => (
               <div className="center-cards">
                 <Card
-                  key={obj._id}
-                  entryId={obj._id}
+                  key={obj.entryId}
+                  entryId={obj.entryId}
                   caption={obj.caption}
                   date={obj.date}
                   mediaType={obj.mediaType}

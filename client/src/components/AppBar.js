@@ -23,7 +23,7 @@ const ResponsiveAppBar = (props) => {
   // Nav Bar buttons handler
   const handleCloseNavMenu = (page) => {
     if (page === "Liked") setLikedPage(true)
-    if (page === "Github") window.open('https://github.com/avianleung/Spacestagram', '_blank');
+    if (page === "Github") window.open('https://github.com/avianleung/GolfGrind', '_blank');
     setAnchorElNav(null);
   };
 
@@ -86,7 +86,7 @@ const ResponsiveAppBar = (props) => {
             component="div"
             onClick={() => setLikedPage(false)}
           >
-            SPACESTAGRAM
+            GOLF GRIND
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

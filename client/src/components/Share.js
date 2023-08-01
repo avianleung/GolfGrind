@@ -50,7 +50,7 @@ export default function SimpleSnackbar(props) {
         autoHideDuration={3000}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         onClose={handleClose}
-        message="Image link copied to clipboard"
+        message="Content link copied to clipboard"
         action={action}
       />
     </div>

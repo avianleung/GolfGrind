@@ -5,6 +5,8 @@ const path = require("path");
 
 const app = express();
 
+require("dotenv").config();
+
 var corsOptions = {
   origin: process.env.ORIGIN_URL,
 };
