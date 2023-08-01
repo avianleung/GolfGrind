@@ -106,7 +106,7 @@ export default function NewEntry (props) {
                     <input
                       id="upload-content"
                       hidden
-                      accept="image/*, video/*"
+                      accept="image/*, video/mp4"
                       type="file"
                       onChange={handleFileChange}
                     />
