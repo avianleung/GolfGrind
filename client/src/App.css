@@ -1,0 +1,42 @@
+body {
+  background-color: #000000;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+
+.center-cards {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vw;
+  margin-bottom: 5vw;
+}
+
+.right-cards {
+  display: flex;
+  justify-content: right;
+}
+
+.none-liked {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
